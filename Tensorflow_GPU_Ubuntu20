@@ -1,0 +1,46 @@
+# It has been a long time I haven't used Ubuntu after I graduated
+# This time I picked Ubuntu 20
+# I just upgrade my desktop with RTX 3090 while keep my old chip AMD 2950x
+# I used https://medium.com/analytics-vidhya/installing-tensorflow-with-cuda-cudnn-gpu-support-on-ubuntu-20-04-f6f67745750a as reference
+
+# Let's install the driver for RTX 3090
+sudo apt-get update
+sudo apt-get upgrade
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt install nvidia-driver-455
+sudo reboot
+# Check the driver
+nvidia-smi
+
+# Install Cuda
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.2.0/local_installers/cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu2004-11-2-local/7fa2af80.pub
+sudo dpkg -i cuda-repo-ubuntu2004-11-2-local_11.2.0-460.27.04-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu2004-11-2-local/7fa2af80.pub
+sudo apt-get update
+sudo apt-get -y install cuda
+# Install Cuda-toolkit
+sudo apt install nvidia-cuda-toolkit
+# Check the Nvidia Cuda compiler version
+nvcc -V
+
+# Download cudnn from website. Check the reference website, pick "cuDNN library for Linux"
+cd Downloads/
+# Extract the file "cudnn-11.1-linux..."
+cd cudnn-11.1-linux-x64-v8.0.4.30/
+sudo cp cuda/lib64/libcudnn* /usr/lib/cuda/lib64/
+sudo mkdir /usr/lib/cuda/lib64
+sudo cp cuda/lib64/libcudnn* /usr/lib/cuda/lib64/
+sudo mkdir /usr/lib/cuda/include
+sudo cp cuda/include/cudnn.h /usr/lib/cuda/include/
+sudo chmod a+r /usr/lib/cuda/include/cudnn.h /usr/lib/cuda/lib64/libcudnn*
+
+# I only add following to the .bashrc, I also used "anaconda3" and my username is "alpha" [The term after "$LD_LIBRARY_PATH:"]
+# Cuda
+export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH:/home/alpha/anaconda3/lib
+# SOurce .bashrc or get a new terminal windows to make the changes take effect.
+
+
