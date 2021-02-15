@@ -41,6 +41,9 @@ sudo chmod a+r /usr/lib/cuda/include/cudnn.h /usr/lib/cuda/lib64/libcudnn*
 # I only add following to the .bashrc, I also used "anaconda3" and my username is "alpha" [The term after "$LD_LIBRARY_PATH:"]
 # Cuda
 export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH:/home/alpha/anaconda3/lib
-# SOurce .bashrc or get a new terminal windows to make the changes take effect.
+# Source .bashrc or get a new terminal windows to make the changes take effect.
+
+#Install jupyter in conda environment
+conda install -c conda-forge jupyterlab
 
 
