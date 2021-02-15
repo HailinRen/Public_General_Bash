@@ -1,0 +1,10 @@
+## For Linux
+# I prefer open-source and free editor and use command line
+# You can use IDE such as CLion, which is good for beginers, but that's not my style.
+# Download and Install Atom or VS Code (Preferred) from website
+# Install gcc and build-essential and gdb
+# Install GNU compiler tools and the GDB debugger
+sudo apt-get install build-essential gdb
+# Check GCC (GNU Compiler Collection, mainly for C and C++)
+gcc -v
+
