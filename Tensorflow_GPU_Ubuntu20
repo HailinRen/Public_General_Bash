@@ -43,6 +43,16 @@ sudo chmod a+r /usr/lib/cuda/include/cudnn.h /usr/lib/cuda/lib64/libcudnn*
 export LD_LIBRARY_PATH=/usr/lib/cuda/lib64:$LD_LIBRARY_PATH:/home/alpha/anaconda3/lib
 # Source .bashrc or get a new terminal windows to make the changes take effect.
 
+# Create Conda environment
+conda create -n py38 python=3.8
+# Activate Env by putting following into .bashrc
+conda activate py38
+# Launch new terminal
+
+# Install Tensorflow 
+pip install tensorflow
+
+
 #Install jupyter in conda environment
 conda install -c conda-forge jupyterlab
 
