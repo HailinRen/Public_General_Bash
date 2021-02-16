@@ -1,0 +1,18 @@
+# Assume you have installed GPU driver
+# Install conda environment
+conda create -n cv38 python=3.8
+# Activate environment
+# Install tensorflow 
+pip install tensorflow
+# In python Check GPU
+import tensorflow as tf
+print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
+
+# Install Other useful libraries
+# Install panda
+pip install pandas
+# Install matplotlib
+conda install matplotlib
+# install opencv
+conda install -c conda-forge opencv
+conda install jupyter
