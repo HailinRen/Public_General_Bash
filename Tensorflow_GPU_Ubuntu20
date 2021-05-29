@@ -7,7 +7,7 @@
 sudo apt-get update
 sudo apt-get upgrade
 sudo add-apt-repository ppa:graphics-drivers/ppa
-sudo apt install nvidia-driver-455
+sudo apt install nvidia-driver-460
 sudo reboot
 # Check the driver
 nvidia-smi
