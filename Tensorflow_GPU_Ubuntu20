@@ -32,9 +32,6 @@ cd Downloads/
 # Extract the file "cudnn-11.1-linux..."
 cd cudnn-11.1-linux-x64-v8.0.4.30/
 sudo cp cuda/lib64/libcudnn* /usr/lib/cuda/lib64/
-sudo mkdir /usr/lib/cuda/lib64
-sudo cp cuda/lib64/libcudnn* /usr/lib/cuda/lib64/
-sudo mkdir /usr/lib/cuda/include
 sudo cp cuda/include/cudnn.h /usr/lib/cuda/include/
 sudo chmod a+r /usr/lib/cuda/include/cudnn.h /usr/lib/cuda/lib64/libcudnn*
 
@@ -51,6 +48,11 @@ conda activate py38
 
 # Install Tensorflow 
 pip install tensorflow
+# check tensorflow gpu in python
+import tensorflow as tf
+tf.test.is_gpu_available(
+    cuda_only=False, min_cuda_compute_capability=None
+)
 
 
 #Install jupyter in conda environment
